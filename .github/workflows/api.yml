@@ -44,19 +44,13 @@ jobs:
           ./gradlew clean test
       
       # --- ARTIFACT GENERATION DAN UPLOAD ---
-
-      - name: Generate Allure Report HTML
-        # Task 'allureReport' akan membuat folder HTML report
-        run: ./gradlew allureReport
-        # Penting: Pastikan ini berjalan meskipun tes gagal agar report kegagalan tetap dibuat
-        if: always() 
-
-      - name: Upload Allure HTML Report Artifact
-        uses: actions/upload-artifact@v4
+      - name: Allure report
+  # You may pin to the exact commit or the version.
+  # uses: afiore/action-allure-report@e43ebd6f4f4c74b07b1eb02f042902bbe6786a19
+        uses: afiore/action-allure-report@v0.1.0
         with:
-          name: Allure-Test-Report-Download
-          # Path default Allure Report HTML untuk proyek Gradle.
-          # Pastikan path ini benar di proyek Anda.
-          path: build/reports/allure-report/
-        # Penting: Pastikan ini berjalan meskipun langkah sebelumnya gagal
-        if: always()
+    # Allure test result data dir
+         results-dir: allure-results
+    # Allure report target dir
+         report-dir: allure-report
+          
