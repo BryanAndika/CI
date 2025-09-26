@@ -57,7 +57,8 @@ jobs:
           name: Allure-Test-Report-Download
           # Path default Allure Report HTML untuk proyek Gradle.
           # Pastikan path ini benar di proyek Anda.
-          results-dir: allure-results
-    # Allure report target dir
-          report-dir: allure-report
+          path: allure-result
+    #       results-dir: allure-results
+    # # Allure report target dir
+    #       report-dir: allure-report
         if: always()
